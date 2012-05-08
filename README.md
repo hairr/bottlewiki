@@ -1,8 +1,8 @@
 # BottleWiki
 
-Bottle Wiki é uma wiki simples escrita em *Python 3* usando o framework [Bottle](http://bottlepy.org).
+Bottle Wiki é uma software simples para wiki escrito em **Python 3** usando o framework [Bottle](http://bottlepy.org).
 
-Este software é apenas um conceito e não deve ser utilizado em produção.
+Este software é apenas um conceito e não deve ser utilizado em produção. Pelo menos, por enquanto...
 
 ## Como funciona
 
@@ -16,10 +16,10 @@ Exemplos:
 
 ## Dependências
 
-  - SQLite3
+  * Python 3
 
 ## Licença
 
-A Bottle Wiki é licenciada pela *GNU GPL v3*.
+A Bottle Wiki é licenciada pela **GNU GPL v3**.
 
 Outros softwares incluídos podem conter licenças diferentes.
