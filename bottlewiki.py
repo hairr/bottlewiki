@@ -27,15 +27,16 @@ dados_view = {
 @view('index.html')
 def wiki(pagina="home"):
     dados_view['form'] = False
-    dados_view['conteudo'] = ''
+    dados_view['conteudo'] = None
     dados_view['pagina'] = pagina
-    pagina = './wiki/' + pagina + '.md'
+    pagina = './wiki/%s.md' % pagina
+
+    dados_view['form'] = True
     if (path.exists(pagina)):
         arquivo = open(pagina, 'r')
         dados_view['conteudo'] = markdown(arquivo.read())
         arquivo.close()
-    else:
-        dados_view['form'] = True
+
     return dados_view
 
 
@@ -44,19 +45,21 @@ def wiki(pagina="home"):
 def editar(pagina):
     dados_view['form'] = True
     dados_view['pagina'] = pagina
-    dados_view['conteudo'] = ''
-    pagina = './wiki/' + pagina + '.md'
+    dados_view['conteudo'] = None
+    pagina = './wiki/%s.md' % pagina
+
     if (path.exists(pagina)):
         arquivo = open(pagina, 'r')
         dados_view['conteudo'] = arquivo.read()
         arquivo.close()
+
     return dados_view
 
 
 @post('/salvar/<pagina>')
 def salvar(pagina):
     conteudo = request.forms.get('texto')
-    arquivo = open('./wiki/' + pagina + '.md', 'w')
+    arquivo = open('./wiki/%s.md' % pagina, 'w')
     arquivo.write(conteudo)
     arquivo.close()
     redirect('/wiki/' + pagina)
@@ -64,7 +67,7 @@ def salvar(pagina):
 
 @route('/<pagina>')
 def redirecionar(pagina):
-    redirect('/wiki/' + pagina)
+    redirect('/wiki/%s' % pagina)
 
 
 if __name__ == '__main__':
