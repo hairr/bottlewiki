@@ -17,6 +17,7 @@ Exemplos:
 ## Dependências
 
   * Python 3
+  * [Jinja2](http://jinja.pocoo.org/docs/)
 
 ## Licença
 

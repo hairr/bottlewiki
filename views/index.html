@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Bottle Wiki</title>
+        <style>
+            body {
+                width: 900px;
+                margin: 15px auto;
+            }
+
+            #cabecalho {
+                border: 4px double #555;
+                text-align: center;
+            }
+
+            #menu ul {
+                margin: 0;
+                padding: 0;
+            }
+
+            #menu ul li {
+                display: inline-block;
+                margin: 0 15px 0 0;
+            }
+
+            textarea {
+                width: 100%;
+                height: 200px;
+            }
+
+            #rodape {
+                font-size: 12px;
+                text-align: center;
+            }
+
+            #rodape p {
+                margin: 0;
+                padding: 2px 0 2px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="cabecalho">
+            <h1>Bottle Wiki</h1>
+        </div>
+        <div id="menu">
+            <ul>
+                <li><a href="{{site_url}}">Página inicial</a></li>
+                {% if form %}
+                    <li><a href="{{site_url}}wiki/{{pagina}}">Cancelar a edição</a></li>
+                {% else %}
+                    <li><a href="{{site_url}}editar/{{pagina}}">Editar esta página</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <div id="conteudo">
+            {% if form %}
+                {% include 'form.html' %}
+            {% elif conteudo %}
+                {{conteudo}}
+            {% endif %}
+        </div>
+        <div id="rodape">
+            <p>Bottle Wiki</p>
+            <p>Desenvolvido por <a href="http://infog.casoft.info">Evaldo Junior (InFog)</a></p>
+            <p>
+                Powered By <a href="http://python.org">Python</a>
+                and <a href="http://bottlepy.org">Bottle</a>
+                </p>
+        </div>
+    </body>
+</html>
