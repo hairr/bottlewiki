@@ -17,7 +17,7 @@ from lib.markdown2 import markdown
 
 
 dados_view = {
-    'site_url' : 'http://localhost:8080/'
+    'site_url': 'http://localhost:8080/'
 }
 
 
