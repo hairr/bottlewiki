@@ -31,7 +31,6 @@ def wiki(pagina="home"):
     dados_view['pagina'] = pagina
     pagina = './wiki/%s.md' % pagina
 
-    dados_view['form'] = True
     if (path.exists(pagina)):
         arquivo = open(pagina, 'r')
         dados_view['conteudo'] = markdown(arquivo.read())
